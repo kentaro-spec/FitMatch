@@ -9,6 +9,9 @@ module.exports = {
         'pink' : '#CB5773',
         'gray' : '#767676',
         'gray-light' : '#F6F6F6',
+        'line-color' : '#38C600',
+        'google-color' : '#4286F5',
+        'mail-color' : '#9B9B9B',
       }
     },
   },
