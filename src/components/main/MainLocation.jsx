@@ -2,7 +2,7 @@ import React from "react";
 
 export default function MainLocation() {
   return (
-    <div className="flex justify-end mb-5 mr-3">
+    <div className="flex justify-end mt-5 mb-5 mr-3">
       <div className="w-9 mr-3">
         <img src="/images/bx_map-pin.png" alt="" />
       </div>

@@ -21,7 +21,6 @@ export default function RadioButton() {
   const handleChange = (e) => {
     setValue(e.target.value);
   };
-  console.log(value);
   return (
 		<div className="text-center mb-5">
 			<div className="inline-block  ">
