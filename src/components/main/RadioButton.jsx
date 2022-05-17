@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-export default function RadioButton() {
+export default function RadioButton({todayDate, tomorrowDate, dayaftertomorrowDate,setDateState}) {
   const [value, setValue] = useState("today");
   const leftClasses = {
     select: "bg-blue text-white p-3 text-center font-bold text-lg rounded-l-lg border-blue  border",
@@ -20,6 +20,7 @@ export default function RadioButton() {
   };
   const handleChange = (e) => {
     setValue(e.target.value);
+		setDateState(e.target.value);
   };
   return (
 		<div className="text-center mb-5">
@@ -37,7 +38,7 @@ export default function RadioButton() {
 								checked={value === "today"}
 							/>
 							今日
-							<p className="text-sm font-normal">22/05/11</p>
+							<p className="text-sm font-normal">{todayDate}</p>
 						</label>
 					</div>
 
@@ -55,7 +56,7 @@ export default function RadioButton() {
 								checked={value === "tomorrow"}
 							/>
 							明日
-							<p className="text-sm font-normal">22/05/12</p>
+							<p className="text-sm font-normal">{tomorrowDate}</p>
 						</label>
 					</div>
 
@@ -75,7 +76,7 @@ export default function RadioButton() {
 								checked={value === "day-after-tomorrow"}
 							/>
 							明後日
-							<p className="text-sm font-normal">22/05/12</p>
+							<p className="text-sm font-normal">{dayaftertomorrowDate}</p>
 						</label>
 					</div>
 				</div>
