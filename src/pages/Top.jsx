@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../utilities/Navbar";
 import SocialLoginButton from "../components/top/SocialLoginButton";
 import axios from "axios";
+import userEvent from "@testing-library/user-event";
 
 export default function Top() {
 
@@ -10,7 +11,12 @@ export default function Top() {
       .get("https://sportskikkake.herokuapp.com/api/line/redirect")
       .then((res) => {
         console.log(res);
-        
+        //userのレコードが返ってくる
+        // if(user.chat_room_id === null){
+        //   //mainページに飛ばす
+        // }else{
+        //   //そのidのチャットルームに飛ばす
+        // }
       });
   };
 
@@ -19,7 +25,8 @@ export default function Top() {
       <Navbar />
       <div className="w-11/12 mx-auto mt-5">
         <h1 className="text-center text-blue font-bold text-3xl mt-16 mb-3">
-          FitMatch
+          FitMatch!
+          {/* Round0 */}
         </h1>
         <p className="text-gray text-center font-semibold text-base mb-5">
           <span className="text-pink">すぐにスポーツ</span>

@@ -2,8 +2,10 @@ import React from "react";
 
 export default function MemberListNav({ locked, users }) {
   const setIcon = (userId) => {
-    const imageIndex = userId % 5;
+    const imageIndex = Math.ceil(userId / 10) % 6;
+
     const iconImages = [
+      "/images/sheep.png",
       "/images/azarashi.png",
       "/images/cow.png",
       "/images/kirin.png",

@@ -9,7 +9,7 @@ import axios from "axios";
 import MemberListNav from "../components/chat/MemberListNav";
 
 export default function Chat() {
-  // const { roomId } = useParams();
+  const { roomId } = useParams();
   const location = useLocation();
   const { userId } = location.state;
   //提供場所の提示
@@ -18,6 +18,7 @@ export default function Chat() {
   const [locked, setLocked] = useState(true);
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
+  const [roomName, setRoomName] = useState("");
   const iconImages = [
     "/images/azarashi.png",
     "/images/cow.png",
@@ -26,19 +27,21 @@ export default function Chat() {
     "/images/tanuki.png",
   ];
 
-  console.log(users, posts);
+  // console.log(users,posts);
 
   useEffect(() => {
     getMap();
     getData();
-    // const interval = setInterval(() => {
-    //   getData();
-    // }, 5000);
-    // return () => {
-    //   // clean up
-    //   clearInterval(interval);
-    // };
-  }, []);
+    // if (!locked) {
+    //   const interval = setInterval(() => {
+    //     getData();
+    //   }, 5000);
+    //   return () => {
+    //     // clean up
+    //     clearInterval(interval);
+    //   };
+    // }
+  }, [locked]);
 
   //開催場所を取得する関数
   const getMap = () => {
@@ -52,26 +55,30 @@ export default function Chat() {
   const getData = () => {
     axios
       .get("https://sportskikkake.herokuapp.com/api/getchat", {
-        params: { chat_rooms_id: 14 },
+        params: { chat_rooms_id: roomId },
       })
       .then((res) => {
         const { data } = res;
+        // console.log(res.data);
+        const room_name = data.room_name
         const locked = data.locked;
         const posts = data.post;
         const users = data.users;
         setLocked(locked);
         setUsers(users);
         setPosts(posts);
+        setRoomName(room_name);
       });
   };
   //メッセージを送る関数
   const postMessage = (postContent) => {
     axios
       .get("https://sportskikkake.herokuapp.com/api/postchat", {
-        params: { userId: 14, post: postContent },
+        params: { userId: userId, post: postContent },
       })
       .then((res) => {
         console.log(res);
+
       });
   };
   const stub = {
@@ -281,9 +288,9 @@ export default function Chat() {
   };
   return (
     <div>
-      <Navbar />
+      <Navbar roomName={roomName} />
       {/* users */}
-      <MemberListNav locked={locked} users={users} /> 
+      <MemberListNav locked={locked} users={users} />
       {/* 開催場所を表示するコンポーネント */}
       <div className="flex overflow-x-auto">
         {localLocation.map((item, index) => {
@@ -302,7 +309,7 @@ export default function Chat() {
           </div>
         )}
       </div>
-      <PostChatBar locked={locked} postMessage={postMessage} />
+      <PostChatBar locked={locked} postMessage={postMessage} getData={getData} />
     </div>
   );
 }

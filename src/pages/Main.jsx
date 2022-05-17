@@ -60,7 +60,8 @@ export default function Main() {
   };
 
   const queries = {
-    userId: 4,
+    // userId: 4,
+    userId: 134,
     sports: sportId,
     date: dateState,
     location: location,
@@ -93,6 +94,11 @@ export default function Main() {
         dayaftertomorrowDate={dayaftertomorrowDate}
         setDateState={setDateState}
       />
+      <div className="flex justify-center">
+        <p className="text-blue text-base mr-1">のんびり</p>
+        <input className="text-black " type="range" />
+        <p className="text-blue text-base ml-2">がっつり</p>
+      </div>
       <StartButton gameStart={gameStart} />
     </>
   );
