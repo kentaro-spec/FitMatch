@@ -7,9 +7,10 @@ export default function Top() {
 
   const lineLogin = () => {
     axios
-      .post("https://sportskikkake.herokuapp.com/login/line/redirect")
+      .get("https://sportskikkake.herokuapp.com/api/line/redirect")
       .then((res) => {
         console.log(res);
+        
       });
   };
 
@@ -18,7 +19,7 @@ export default function Top() {
       <Navbar />
       <div className="w-11/12 mx-auto mt-5">
         <h1 className="text-center text-blue font-bold text-3xl mt-16 mb-3">
-          アプリ名
+          FitMatch
         </h1>
         <p className="text-gray text-center font-semibold text-base mb-5">
           <span className="text-pink">すぐにスポーツ</span>

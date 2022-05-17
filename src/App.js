@@ -9,7 +9,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Top />} />
       <Route path="/main" element={<Main />} />
-      <Route path="/chat/:id" element={<Chat />} />
+      <Route path="/chat/:roomId" element={<Chat />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
