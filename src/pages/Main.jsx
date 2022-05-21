@@ -75,9 +75,7 @@ export default function Main() {
         const user = res.data.user;
         const userId = user.id;
         const roomId = res.data.room.id;
-        // const locked = res.data.room.locked;
         navigate(`/chat/${roomId}`, { state: { userId } });
-        // navigate(`/chat/${roomId}`);
       });
   };
   return (

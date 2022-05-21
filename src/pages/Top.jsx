@@ -2,7 +2,6 @@ import React from "react";
 import Navbar from "../utilities/Navbar";
 import SocialLoginButton from "../components/top/SocialLoginButton";
 import axios from "axios";
-import userEvent from "@testing-library/user-event";
 import { useNavigate } from "react-router-dom";
 
 export default function Top() {
