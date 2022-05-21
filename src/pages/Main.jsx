@@ -60,8 +60,7 @@ export default function Main() {
   };
 
   const queries = {
-    // userId: 4,
-    userId: 134,
+    userId: 14,
     sports: sportId,
     date: dateState,
     location: location,

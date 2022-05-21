@@ -3,21 +3,23 @@ import Navbar from "../utilities/Navbar";
 import SocialLoginButton from "../components/top/SocialLoginButton";
 import axios from "axios";
 import userEvent from "@testing-library/user-event";
+import { useNavigate } from "react-router-dom";
 
 export default function Top() {
-
+  const navigate = useNavigate();
   const lineLogin = () => {
-    axios
-      .get("https://sportskikkake.herokuapp.com/api/line/redirect")
-      .then((res) => {
-        console.log(res);
-        //userのレコードが返ってくる
-        // if(user.chat_room_id === null){
-        //   //mainページに飛ばす
-        // }else{
-        //   //そのidのチャットルームに飛ばす
-        // }
-      });
+    navigate("/main");
+    // axios
+    //   .get("https://sportskikkake.herokuapp.com/api/line/redirect")
+    //   .then((res) => {
+    //     console.log(res);
+    //     //userのレコードが返ってくる
+    //     // if(user.chat_room_id === null){
+    //     //   //mainページに飛ばす
+    //     // }else{
+    //     //   //そのidのチャットルームに飛ばす
+    //     // }
+    //   });
   };
 
   return (
